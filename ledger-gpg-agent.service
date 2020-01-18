@@ -1,0 +1,9 @@
+[Unit]
+Description=ledger-gpg-agent
+Requires=ledger-gpg-agent.socket
+
+[Service]
+Type=Simple
+Environment="GNUPGHOME=%h/.gnupg/ledger"
+Environment="PATH=/bin:/usr/bin:/usr/local/bin:%h/.local/bin"
+ExecStart=${HOME}/.local/bin/ledger-gpg-agent -vv

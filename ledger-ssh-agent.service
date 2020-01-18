@@ -1,0 +1,10 @@
+[Unit]
+Description=ledger-agent SSH agent
+Requires=ledger-ssh-agent.socket
+
+[Service]
+Type=simple
+Restart=always
+Environment="DISPLAY=:0"
+Environment="PATH=/bin:/usr/bin:/usr/local/bin:%h/.local/bin"
+ExecStart=${HOME}/.local/bin/ledger-agent --foreground --sock-path %t/ledger-agent/S.ssh ${HOME}/.ssh/ledger.conf

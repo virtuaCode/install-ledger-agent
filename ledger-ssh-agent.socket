@@ -1,0 +1,13 @@
+[Unit]
+Description=ledger-agent SSH agent socket
+
+[Socket]
+ListenStream=%t/ledger-agent/S.ssh
+FileDescriptorName=ssh
+Service=ledger-ssh-agent.service
+SocketMode=0600
+DirectoryMode=0700
+
+[Install]
+WantedBy=sockets.target
+
